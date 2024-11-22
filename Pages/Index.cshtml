@@ -1,0 +1,13 @@
+﻿@page "{*slug}"
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@if (Model.PageContent != null)
+{
+    foreach (var component in Model.PageContent.Content.BagPart.ContentItems)
+    {
+        <partial name="_@component.ContentType" model="@component" />
+    }
+}
